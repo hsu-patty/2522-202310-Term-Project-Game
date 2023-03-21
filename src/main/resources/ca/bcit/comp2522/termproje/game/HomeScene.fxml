@@ -3,15 +3,77 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="267.0" prefWidth="289.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.bcit.comp2522.termproje.game.SceneController">
+<VBox alignment="CENTER" centerShape="false" prefHeight="356.0" prefWidth="443.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.bcit.comp2522.termproje.game.SceneController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This is a home screen" />
 
     <Label fx:id="workButton" />
-    <Button onAction="#switchToWork" text="Go to Work" />
+    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0">
+        <VBox.margin>
+            <Insets/>
+        </VBox.margin>
+        <Button onAction="#switchToEat" alignment="CENTER" centerShape="false" mnemonicParsing="false" text="Eat"
+                textAlignment="JUSTIFY">
+           <opaqueInsets>
+               <Insets left="10.0" right="10.0"/>
+           </opaqueInsets>
+           <HBox.margin>
+               <Insets left="10.0" right="10.0" top="10.0"/>
+           </HBox.margin>
+        </Button>
+        <Button onAction="#switchToSleep" alignment="CENTER" centerShape="false" mnemonicParsing="false" text="Sleep"
+                textAlignment="CENTER">
+           <opaqueInsets>
+               <Insets left="10.0" right="10.0"/>
+           </opaqueInsets>
+           <HBox.margin>
+               <Insets left="10.0" right="10.0" top="10.0"/>
+           </HBox.margin>
+        </Button>
+        <Button onAction="#switchToWork" text="Work" textAlignment="RIGHT">
+          <opaqueInsets>
+              <Insets left="10.0" right="10.0"/>
+          </opaqueInsets>
+          <HBox.margin>
+              <Insets left="10.0" right="10.0" top="10.0"/>
+          </HBox.margin>
+        </Button>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="38.0" prefWidth="403.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        <Button onAction="#switchToTraining" alignment="CENTER" centerShape="false" mnemonicParsing="false"
+                prefHeight="26.0" prefWidth="65.0" text="Train" textAlignment="JUSTIFY">
+           <opaqueInsets>
+               <Insets left="10.0" right="10.0"/>
+           </opaqueInsets>
+           <HBox.margin>
+               <Insets left="10.0" right="10.0" top="10.0"/>
+           </HBox.margin>
+        </Button>
+        <Button onAction="#switchToRelationship" alignment="CENTER" centerShape="false" mnemonicParsing="false"
+                prefHeight="26.0" prefWidth="88.0" text="Hangout" textAlignment="CENTER">
+           <opaqueInsets>
+               <Insets left="10.0" right="10.0"/>
+           </opaqueInsets>
+           <HBox.margin>
+               <Insets left="10.0" right="10.0" top="10.0"/>
+           </HBox.margin>
+        </Button>
+        <Button onAction="#switchToMiniGame" prefHeight="26.0" prefWidth="89.0" text="MiniGame" textAlignment="RIGHT">
+           <opaqueInsets>
+               <Insets left="10.0" right="10.0"/>
+           </opaqueInsets>
+           <HBox.margin>
+               <Insets left="10.0" right="10.0" top="10.0"/>
+           </HBox.margin>
+        </Button>
+    </HBox>
 </VBox>
