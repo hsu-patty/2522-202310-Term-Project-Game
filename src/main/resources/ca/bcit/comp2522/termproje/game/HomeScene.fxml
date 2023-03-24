@@ -11,6 +11,7 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+   <Label fx:id="nameLabel" alignment="TOP_LEFT" text="Label" />
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This is a home screen" />
 
     <Label fx:id="workButton" />

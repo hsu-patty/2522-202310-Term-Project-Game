@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeScene.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScreen.fxml")));
             Scene scene = new Scene(root);
             stage.setTitle("Hello!");
             stage.setScene(scene);

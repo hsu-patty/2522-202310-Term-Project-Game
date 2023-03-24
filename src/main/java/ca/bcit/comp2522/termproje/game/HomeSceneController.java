@@ -1,9 +1,11 @@
 package ca.bcit.comp2522.termproje.game;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
@@ -61,5 +63,11 @@ public class HomeSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    Label nameLabel;
+
+    public void displayName(String username) {
+        nameLabel.setText("Hello " + username + "!");
     }
 }
