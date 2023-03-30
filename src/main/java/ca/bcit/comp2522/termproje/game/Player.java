@@ -13,10 +13,13 @@ public class Player {
     private int money;
     private int days;
     private ArrayList items;
+
+    private String name;
     /**
      * Creates an instance of player class.
      */
     public Player(){
+        name = null;
         happiness = 10;
         energy = 10;
         speed = 1;
@@ -122,5 +125,13 @@ public class Player {
      */
     public void setItems(ArrayList items) {
         this.items = items;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
