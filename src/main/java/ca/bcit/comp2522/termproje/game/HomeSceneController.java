@@ -17,6 +17,8 @@ public class HomeSceneController {
     private Scene scene;
     private Parent root;
 
+    private Player player;
+
     public void switchToWork(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WorkScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -67,7 +69,12 @@ public class HomeSceneController {
     @FXML
     Label nameLabel;
 
-    public void displayName(String username) {
-        nameLabel.setText("Hello " + username + "!");
+    public void displayName() {
+        nameLabel.setText("Hello " + player.getName() + "!");
+    }
+
+    public void createPlayer(String name) {
+        this.player = new Player();
+        player.setName(name);
     }
 }

@@ -25,7 +25,8 @@ public class MainScreenController {
         root = loader.load();
 
         HomeSceneController homeSceneController = loader.getController();
-        homeSceneController.displayName(username);
+        homeSceneController.createPlayer(username);
+        homeSceneController.displayName();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
