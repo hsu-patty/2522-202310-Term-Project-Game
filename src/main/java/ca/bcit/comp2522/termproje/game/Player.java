@@ -30,7 +30,6 @@ public class Player {
         money = 10;
         hunger = 10;
         days = 1;
-        items = new ArrayList<>();
     }
     /**
      * Gets the players current happiness.
@@ -115,20 +114,6 @@ public class Player {
      */
     public void setDays(int days) {
         this.days = days;
-    }
-    /**
-     * Gets the players current item list.
-     * @return an Arraylist of the players current items
-     */
-    public ArrayList getItems() {
-        return items;
-    }
-    /**
-     * Sets the player's item list
-     * @param items arraylist of items
-     */
-    public void setItems(ArrayList items) {
-        this.items = items;
     }
 
     /**
