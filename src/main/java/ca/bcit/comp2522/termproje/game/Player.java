@@ -132,65 +132,9 @@ public class Player {
         this.name = name;
     }
 
-    /**
-     * Decrease player energy by 5
-     */
-    public void useEnergy() {
-        this.energy -= 5;
+    public int getHunger() {
+        return this.hunger;
     }
-
-    /**
-     * Decrease player money by 2
-     */
-    public void useMoney() {
-        this.money -= 2;
-    }
-
-    /**
-     * Increase player money by 2
-     */
-    public void earnMoney() {
-        this.money += 2;
-    }
-
-    /**
-     * Update player speed by given amount
-     * @param amount an integer between 1-3
-     */
-    public void updateSpeed(int amount) {
-        this.speed += amount;
-    }
-
-    /**
-     * Update player strength by given amount
-     * @param amount an integer between 1-3
-     */
-    public void updateStrength(int amount) {
-        this.strength += amount;
-    }
-
-    /**
-     * Decrease player hunger by 5.
-     */
-    public void decreaseHunger() {
-        this.hunger -= 5;
-    }
-
-    /**
-     * Increase player hunger by 5.
-     */
-    public void increaseHunger() {
-        this.hunger += 5;
-    }
-
-    public void decreaseHappiness(int amount) {
-        this.happiness -= amount;
-    }
-
-    public void increaseHappiness(int amount) {
-        this.happiness += amount;
-    }
-
     /**
      * Update player's speed and strength by 1-3.
      * Use energy and hunger.
@@ -198,10 +142,16 @@ public class Player {
      */
     public void trainPlayer() {
         Random random = new Random();
-        updateSpeed(random.nextInt(3)+1);
-        updateStrength(random.nextInt(3)+1);
-        useEnergy();
-        decreaseHunger();
+        //increase speed between 1-3
+        this.speed += random.nextInt(3)+1;
+        //increase strength between 1-3
+        this.strength += random.nextInt(3)+1;
+        //decrease happiness
+        this.happiness -= random.nextInt(3)+1;
+        //decrease energy
+        this.energy -= 5;
+        //decrease hunger
+        this.hunger -= 2;
     }
 
     /**
@@ -214,14 +164,30 @@ public class Player {
 
     public void hangout() {
         Random random = new Random();
-        increaseHappiness(random.nextInt(3)+1);
-        useMoney();
-        useEnergy();
+        //increase happiness between 1-3
+        this.happiness += random.nextInt(3)+1;
+        //decrease money
+        this.money -= 2;
+        //decrease energy
+        this.energy -= 5;
     }
     public void eat() {
         Random random = new Random();
-        increaseHappiness(random.nextInt(3)+1);
-        useMoney();
-        increaseHunger();
+        //increase happiness between 1-3
+        this.happiness += random.nextInt(3)+1;
+        //decrease money
+        this.money -= 2;
+        //increase hunger
+        this.hunger += 5;
+    }
+
+    public void work() {
+        Random random = new Random();
+        //decrease happiness
+        this.happiness -= random.nextInt(3)+1;
+        //increase money
+        this.money += 4;
+        // decrease energy
+        this.energy -= 5;
     }
 }

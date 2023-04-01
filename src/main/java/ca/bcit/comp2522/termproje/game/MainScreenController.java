@@ -27,10 +27,10 @@ public class MainScreenController {
         HomeSceneController homeSceneController = loader.getController();
         homeSceneController.createPlayer(username);
         homeSceneController.displayName();
+        homeSceneController.displayStats();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 }

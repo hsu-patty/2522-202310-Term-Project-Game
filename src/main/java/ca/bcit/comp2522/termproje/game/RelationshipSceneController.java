@@ -18,7 +18,15 @@ public class RelationshipSceneController {
     private Parent root;
 
     public void switchToHome(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeScene.fxml")));
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeScene.fxml")));
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScene.fxml"));
+        root = loader.load();
+        HomeSceneController homeSceneController = loader.getController();
+        homeSceneController.displayStats();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

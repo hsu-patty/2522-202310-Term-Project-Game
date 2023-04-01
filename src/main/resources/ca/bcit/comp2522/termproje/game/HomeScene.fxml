@@ -13,6 +13,16 @@
     </padding>
    <Label fx:id="nameLabel" alignment="TOP_LEFT" text="Label" />
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This is a home screen" />
+   <VBox prefHeight="164.0" prefWidth="403.0">
+      <children>
+         <Label fx:id = "speedLabel" text="Speed : " />
+         <Label fx:id = "strengthLabel" text="Strength : " />
+         <Label fx:id = "energyLabel" text="Energy : " />
+         <Label fx:id = "happinessLabel" text="Happiness : " />
+         <Label fx:id = "moneyLabel" text="Money : " />
+         <Label fx:id = "hungerLabel" text="Hunger : " />
+      </children>
+   </VBox>
 
     <Label fx:id="workButton" />
     <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0">

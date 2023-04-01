@@ -17,9 +17,10 @@ public class HomeSceneController {
     private Scene scene;
     private Parent root;
 
-    private Player player;
+    private static Player player;
 
     public void switchToWork(ActionEvent event) throws IOException {
+        player.work();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WorkScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -28,6 +29,7 @@ public class HomeSceneController {
     }
 
     public void switchToEat(ActionEvent event) throws IOException {
+        player.eat();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EatScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -36,6 +38,7 @@ public class HomeSceneController {
     }
 
     public void switchToSleep(ActionEvent event) throws IOException {
+        player.sleep();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SleepScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -44,6 +47,7 @@ public class HomeSceneController {
     }
 
     public void switchToTraining(ActionEvent event) throws IOException {
+        player.trainPlayer();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TrainingScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -60,6 +64,7 @@ public class HomeSceneController {
     }
 
     public void switchToRelationship(ActionEvent event) throws IOException {
+        player.hangout();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RelationshipScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -68,9 +73,30 @@ public class HomeSceneController {
     }
     @FXML
     Label nameLabel;
+    @FXML
+    Label speedLabel;
+    @FXML
+    Label strengthLabel;
+    @FXML
+    Label energyLabel;
+    @FXML
+    Label happinessLabel;
+    @FXML
+    Label moneyLabel;
+    @FXML
+    Label hungerLabel;
 
     public void displayName() {
         nameLabel.setText("Hello " + player.getName() + "!");
+    }
+
+    public void displayStats() {
+        speedLabel.setText("Speed : " + player.getSpeed());
+        strengthLabel.setText("Strength : " + player.getStrength());
+        energyLabel.setText("Energy : " + player.getEnergy());
+        happinessLabel.setText("Happiness : " + player.getHappiness());
+        moneyLabel.setText("Money : " + player.getMoney());
+        hungerLabel.setText("Hunger : " + player.getHunger());
     }
 
     public void createPlayer(String name) {
