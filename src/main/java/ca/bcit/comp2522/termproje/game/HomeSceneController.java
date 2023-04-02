@@ -11,7 +11,11 @@ import javafx.scene.Parent;
 
 import java.io.IOException;
 import java.util.Objects;
-
+/**
+ * Home scene controller class.
+ * @author Patty Hsu & Tim Lee
+ * @version 202310
+ */
 public class HomeSceneController {
     private Stage stage;
     private Scene scene;
@@ -19,54 +23,79 @@ public class HomeSceneController {
 
     private static Player player;
 
-    public void switchToWork(ActionEvent event) throws IOException {
+    /**
+     * Allows users to switch to work scene from home scene and will call the player work method.
+     * @param event an Action Event that tells us the work button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
+    public void switchToWork(final ActionEvent event) throws IOException {
         player.work();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WorkScene.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-    public void switchToEat(ActionEvent event) throws IOException {
+    /**
+     * Allows users to switch to eat scene from home scene and will call the player eat method.
+     * @param event an Action Event that tells us the eat button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
+    public void switchToEat(final ActionEvent event) throws IOException {
         player.eat();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EatScene.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-    public void switchToSleep(ActionEvent event) throws IOException {
+    /**
+     * Allows users to switch to sleep scene from home scene and will call the player sleep method.
+     * @param event an Action Event that tells us the sleep button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
+    public void switchToSleep(final ActionEvent event) throws IOException {
         player.sleep();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SleepScene.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-    public void switchToTraining(ActionEvent event) throws IOException {
+    /**
+     * Allows users to switch to work scene from home scene and will call the player work method.
+     * @param event an Action Event that tells us the work button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
+    public void switchToTraining(final ActionEvent event) throws IOException {
         player.trainPlayer();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TrainingScene.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-    public void switchToMiniGame(ActionEvent event) throws IOException {
+    /**
+     * Allows users to switch to mini-game scene from home scene and will call the mini-game method.
+     * @param event an Action Event that tells us the mini game button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
+    public void switchToMiniGame(final ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MiniGameScene.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-    public void switchToRelationship(ActionEvent event) throws IOException {
+    /**
+     * Allows users to switch to relationship scene from home scene and will call the player hangout method.
+     * @param event an Action Event that tells us the hangout button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
+    public void switchToRelationship(final ActionEvent event) throws IOException {
         player.hangout();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RelationshipScene.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -85,11 +114,15 @@ public class HomeSceneController {
     Label moneyLabel;
     @FXML
     Label hungerLabel;
-
+    /**
+     * Displays player username on screen.
+     */
     public void displayName() {
         nameLabel.setText("Hello " + player.getName() + "!");
     }
-
+    /**
+     * Displays player's stats on screen.
+     */
     public void displayStats() {
         speedLabel.setText("Speed : " + player.getSpeed());
         strengthLabel.setText("Strength : " + player.getStrength());
@@ -98,8 +131,11 @@ public class HomeSceneController {
         moneyLabel.setText("Money : " + player.getMoney());
         hungerLabel.setText("Hunger : " + player.getHunger());
     }
-
-    public void createPlayer(String name) {
+    /**
+     * Creates a new instance of the player class.
+     * @param name player's inputted name
+     */
+    public void createPlayer(final String name) {
         this.player = new Player();
         player.setName(name);
     }

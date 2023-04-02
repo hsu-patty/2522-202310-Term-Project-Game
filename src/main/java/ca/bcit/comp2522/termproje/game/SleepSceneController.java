@@ -11,12 +11,20 @@ import javafx.scene.Parent;
 
 import java.io.IOException;
 import java.util.Objects;
-
+/**
+ * Sleep scene controller class.
+ * @author Patty Hsu & Tim Lee
+ * @version 202310
+ */
 public class SleepSceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+    /**
+     * Switch to home scene from sleep scene.
+     * @param event an Action Event that indicates the go home button has been pressed
+     * @throws IOException if FXML file not found
+     */
     public void switchToHome(ActionEvent event) throws IOException {
 //        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeScene.fxml")));
 //        stage = (Stage)((Node)event.getSource()).getScene().getWindow();

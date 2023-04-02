@@ -11,13 +11,21 @@ import javafx.scene.Parent;
 
 import java.io.IOException;
 import java.util.Objects;
-
+/**
+ * Relationship scene controller class.
+ * @author Patty Hsu & Tim Lee
+ * @version 202310
+ */
 public class RelationshipSceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-    public void switchToHome(ActionEvent event) throws IOException {
+    /**
+     * Goes back to the home screen from the hang-out scene.
+     * @param event an Action Event that tells us the go home button has been pressed
+     * @throws IOException if FXML file not found
+     */
+    public void switchToHome(final ActionEvent event) throws IOException {
 //        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeScene.fxml")));
 //        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 //        scene = new Scene(root);
@@ -27,7 +35,7 @@ public class RelationshipSceneController {
         root = loader.load();
         HomeSceneController homeSceneController = loader.getController();
         homeSceneController.displayStats();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

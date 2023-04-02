@@ -8,9 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
+/**
+ * Main screen controller class.
+ * @author Patty Hsu & Tim Lee
+ * @version 202310
+ */
 public class MainScreenController {
 
     @FXML
@@ -19,7 +22,12 @@ public class MainScreenController {
     private Scene scene;
     private Parent root;
 
-    public void startGame(ActionEvent event) throws IOException {
+    /**
+     * Starts the game.
+     * @param event Action Event that says the start game button has been pressed.
+     * @throws IOException if designated FXML file is not found
+     */
+    public void startGame(final ActionEvent event) throws IOException {
         String username = nameTextField.getText();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScene.fxml"));
         root = loader.load();
@@ -28,7 +36,7 @@ public class MainScreenController {
         homeSceneController.createPlayer(username);
         homeSceneController.displayName();
         homeSceneController.displayStats();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
