@@ -36,6 +36,7 @@ public class MainScreenController {
         homeSceneController.createPlayer(username);
         homeSceneController.displayName();
         homeSceneController.displayStats();
+        homeSceneController.setButtons();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -30,13 +30,13 @@
             <Label fx:id="happinessLabel" text="Happiness : " />
             <Label fx:id="moneyLabel" text="Money : " />
             <Label fx:id="hungerLabel" text="Hunger : " />
+             <Label fx:id="daysLabel" text="Days passed : " />
          </children>
       </VBox>
-   
-                <Label fx:id="workButton" layoutX="280.0" layoutY="258.0" />
+
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="145.0" layoutX="26.0" layoutY="130.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" width="158.0" />
        <HBox alignment="CENTER" layoutX="99.0" layoutY="300.0" prefHeight="0.0" prefWidth="403.0">
-           <Button alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToEat" text="Eat" textAlignment="JUSTIFY">
+           <Button fx:id = "eatButton" alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToEat" text="Eat" textAlignment="JUSTIFY">
               <opaqueInsets>
                   <Insets left="10.0" right="10.0" />
               </opaqueInsets>
@@ -44,7 +44,7 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
               </HBox.margin>
            </Button>
-           <Button alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToSleep" text="Sleep" textAlignment="CENTER">
+           <Button fx:id = "sleepButton" alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToSleep" text="Sleep" textAlignment="CENTER">
               <opaqueInsets>
                   <Insets left="10.0" right="10.0" />
               </opaqueInsets>
@@ -52,7 +52,7 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
               </HBox.margin>
            </Button>
-           <Button onAction="#switchToWork" text="Work" textAlignment="RIGHT">
+           <Button fx:id = "workButton" onAction="#switchToWork" text="Work" textAlignment="RIGHT">
              <opaqueInsets>
                  <Insets left="10.0" right="10.0" />
              </opaqueInsets>
@@ -65,7 +65,7 @@
            <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
            </padding>
-           <Button alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToTraining" prefHeight="26.0" prefWidth="65.0" text="Train" textAlignment="JUSTIFY">
+           <Button fx:id = "trainButton" alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToTraining" prefHeight="26.0" prefWidth="65.0" text="Train" textAlignment="JUSTIFY">
               <opaqueInsets>
                   <Insets left="10.0" right="10.0" />
               </opaqueInsets>
@@ -73,7 +73,7 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
               </HBox.margin>
            </Button>
-           <Button alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToRelationship" prefHeight="26.0" prefWidth="88.0" text="Hangout" textAlignment="CENTER">
+           <Button fx:id = "hangoutButton" alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToRelationship" prefHeight="26.0" prefWidth="88.0" text="Hangout" textAlignment="CENTER">
               <opaqueInsets>
                   <Insets left="10.0" right="10.0" />
               </opaqueInsets>
@@ -81,7 +81,7 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
               </HBox.margin>
            </Button>
-           <Button onAction="#switchToMiniGame" prefHeight="26.0" prefWidth="89.0" text="MiniGame" textAlignment="RIGHT">
+           <Button fx:id = "minigameButton" onAction="#switchToMiniGame" prefHeight="26.0" prefWidth="89.0" text="MiniGame" textAlignment="RIGHT">
               <opaqueInsets>
                   <Insets left="10.0" right="10.0" />
               </opaqueInsets>

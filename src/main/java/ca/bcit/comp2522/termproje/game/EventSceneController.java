@@ -18,7 +18,9 @@ public class EventSceneController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScene.fxml"));
         root = loader.load();
         HomeSceneController homeSceneController = loader.getController();
+        homeSceneController.displayName();
         homeSceneController.displayStats();
+        homeSceneController.setButtons();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

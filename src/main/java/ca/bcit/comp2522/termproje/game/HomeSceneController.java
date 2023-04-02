@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -114,6 +115,8 @@ public class HomeSceneController {
     Label moneyLabel;
     @FXML
     Label hungerLabel;
+    @FXML
+    Label daysLabel;
     /**
      * Displays player username on screen.
      */
@@ -130,6 +133,7 @@ public class HomeSceneController {
         happinessLabel.setText("Happiness : " + player.getHappiness());
         moneyLabel.setText("Money : " + player.getMoney());
         hungerLabel.setText("Hunger : " + player.getHunger());
+        daysLabel.setText("Days passed : " + player.getDays());
     }
     /**
      * Creates a new instance of the player class.
@@ -138,5 +142,39 @@ public class HomeSceneController {
     public void createPlayer(final String name) {
         this.player = new Player();
         player.setName(name);
+    }
+
+    @FXML
+    Button eatButton;
+    @FXML
+    Button sleepButton;
+    @FXML
+    Button workButton;
+    @FXML
+    Button trainButton;
+    @FXML
+    Button hangoutButton;
+    @FXML
+    Button minigameButton;
+
+
+    public void setButtons() {
+        if (player.getEnergy() <= 0) {
+            eatButton.setDisable(true);
+            workButton.setDisable(true);
+            trainButton.setDisable(true);
+            hangoutButton.setDisable(true);
+        } else {
+            eatButton.setDisable(false);
+            workButton.setDisable(false);
+            trainButton.setDisable(false);
+            hangoutButton.setDisable(false);
+        }
+
+        if (player.getDays() % 5 == 0 || player.getDays() == 0) {
+            minigameButton.setDisable(false);
+        } else {
+            minigameButton.setDisable(true);
+        }
     }
 }
