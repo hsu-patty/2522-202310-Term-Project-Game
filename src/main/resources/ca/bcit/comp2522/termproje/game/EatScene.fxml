@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox alignment="CENTER" prefHeight="267.0" prefWidth="289.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.bcit.comp2522.termproje.game.EatSceneController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
 
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Eating..." />
-
-    <Label fx:id="homeButton" />
-    <Button onAction="#switchToHome" text="Go to Home" />
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.bcit.comp2522.termproje.game.EatSceneController">
+   <children>
+      <ImageView fitHeight="674.0" fitWidth="762.0" layoutX="-3.0" layoutY="-126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/food.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="homeButton" layoutX="273.0" layoutY="401.0" mnemonicParsing="false" onAction="#switchToHome" text="Go Home" />
+   </children>
+</AnchorPane>
