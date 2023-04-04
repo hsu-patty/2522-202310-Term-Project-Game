@@ -171,10 +171,10 @@ public class HomeSceneController {
             hangoutButton.setDisable(false);
         }
 
-        if (player.getDays() % 5 == 0 || player.getDays() == 0) {
-            minigameButton.setDisable(false);
-        } else {
-            minigameButton.setDisable(true);
-        }
+//        if (player.getDays() % 5 == 0 || player.getDays() == 0) {
+//            minigameButton.setDisable(false);
+//        } else {
+//            minigameButton.setDisable(true);
+//        }
     }
 }
