@@ -1,6 +1,6 @@
 package ca.bcit.comp2522.termproje.game;
 
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class MinigameSceneControllerPatty {
     private Stage stage;
@@ -20,6 +22,8 @@ public class MinigameSceneControllerPatty {
 
     @FXML private ImageView baseball;
     @FXML private ImageView bat;
+
+    public boolean swing = false;
 
     public void switchToHome(ActionEvent event) throws IOException {
 //        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeScene.fxml")));
@@ -51,19 +55,31 @@ public class MinigameSceneControllerPatty {
 //    }
 
     public void startGame() {
-        int counter = 0;
-        TranslateTransition translate = new TranslateTransition();
-        translate.setNode(baseball);
-        while (counter < 10) {
-            translate.setDelay(Duration.seconds(0.75));
-            translate.setByY(250);
-            translate.setCycleCount(1);
-            translate.setDuration(Duration.millis(1000));
-            translate.play();
-            baseball.setTranslateX(0);
-            baseball.setTranslateY(0);
-            counter ++;
-        }
+        Random rand = new Random();
+        int x = rand.nextInt(3);
+        Timeline ballTimeline = new Timeline(new KeyFrame(Duration.seconds(0.01), e -> {
+
+            if (swing) {
+                if (x == 0) {
+                baseball.setLayoutY(baseball.getLayoutY() -3);
+                baseball.setLayoutX(baseball.getLayoutX()-1);}
+                else if (x == 1) {
+                    baseball.setLayoutY(baseball.getLayoutY() -3);
+                    baseball.setLayoutX(baseball.getLayoutX() + 1);}
+                else {
+                    baseball.setLayoutY(baseball.getLayoutY() -3);
+                }
+            }
+            else {
+            baseball.setLayoutY(baseball.getLayoutY() + 1);
+            this.swing = false;}
+        }));
+//        KeyFrame end = new KeyFrame(Duration.seconds(2), new KeyValue(baseball.yProperty(), 500));
+//        ballTimeline.getKeyFrames().add(end);
+        ballTimeline.setCycleCount(500);
+        System.out.println(this.swing);
+        ballTimeline.play();
+
     }
 
     public void swing() {
@@ -75,15 +91,15 @@ public class MinigameSceneControllerPatty {
 //        rotate.setNode(bat);
 //        rotate.setDuration(Duration.millis(500));
 //        rotate.setCycleCount(1);
-////        rotate.setByAngle(360);
+//        rotate.setByAngle(270);
 //        rotate.setInterpolator(Interpolator.LINEAR);
-//        bat.getTransforms().add(rotation);
-//        rotation.setAngle(rotation.getAngle() + 50);
+////        bat.getTransforms().add(rotation);
+////        rotation.setAngle(rotation.getAngle() + 50);
 //        rotate.play();
 
-        if (baseball.getY() >= 340 && baseball.getY() <= 360) {
-            baseball.setTranslateY(-600);
-            baseball.setTranslateX(200);
+        if (baseball.getLayoutY() >= 330 && baseball.getLayoutY() <= 370) {
+            this.swing = true;
         }
+//        this.swing = true;
     }
 }
