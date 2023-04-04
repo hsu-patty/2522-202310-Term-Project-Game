@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Objects;
 /**
@@ -144,6 +145,10 @@ public class HomeSceneController {
         player.setName(name);
     }
 
+    public void loadPlayer(final String name, final int speed, final int strength, final int energy,
+                           final int happiness, final int money, final int hunger, final int days) {
+        this.player = new Player(name, speed, strength, energy, happiness, money, hunger, days);
+    }
     @FXML
     Button eatButton;
     @FXML
@@ -183,5 +188,18 @@ public class HomeSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void saveData() throws IOException {
+        FileWriter fw = new FileWriter("src/main/java/ca/bcit/comp2522/termproje/game/save.txt");
+        fw.write(player.getName() + "\r\n");
+        fw.write(player.getSpeed() + "\r\n");
+        fw.write(player.getStrength() + "\r\n");
+        fw.write(player.getEnergy() + "\r\n");
+        fw.write(player.getHappiness() + "\r\n");
+        fw.write(player.getMoney() + "\r\n");
+        fw.write(player.getHunger() + "\r\n");
+        fw.write(player.getDays() + "\r\n");
+        fw.close();
     }
 }

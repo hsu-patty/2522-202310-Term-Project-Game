@@ -31,6 +31,21 @@ public class Player {
         days = 1;
     }
     /**
+     * Creates an instance of player class with given information.
+     */
+    public Player(final String newName, final int newSpeed, final int newStrength, final int newEnergy,
+                  final int newHappiness, final int newMoney, final int newHunger, final int newDays) {
+        name = newName;
+        speed = newSpeed;
+        strength = newStrength;
+        energy = newEnergy;
+        happiness = newHappiness;
+        money = newMoney;
+        hunger = newHunger;
+        days = newDays;
+    }
+
+    /**
      * Gets the players current happiness.
      * @return integer representing player happiness
      */

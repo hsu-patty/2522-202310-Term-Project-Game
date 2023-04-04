@@ -24,5 +24,6 @@
       <Label layoutX="231.0" layoutY="241.0" style="-fx-background-color: white;" text="Enter Your Player's Name" />
       <TextField fx:id="nameTextField" layoutX="187.0" layoutY="278.0" prefHeight="26.0" prefWidth="226.0" />
       <Button fx:id="startGame" layoutX="273.0" layoutY="323.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
+      <Button onAction="#loadGame" layoutX="255.0" layoutY="400.0" mnemonicParsing="false" text="Load Game" />
    </children>
 </AnchorPane>
