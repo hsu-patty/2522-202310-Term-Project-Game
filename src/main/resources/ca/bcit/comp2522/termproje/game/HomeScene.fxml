@@ -91,6 +91,6 @@
            </Button>
        </HBox>
       <Button layoutX="259.0" layoutY="410.0" mnemonicParsing="false" onAction="#switchToMiniGamePatty" text="Patty" />
-       <Button onAction="#saveData" layoutX="531.0" layoutY="17.0" mnemonicParsing="false" text="save" />
+       <Button layoutX="531.0" layoutY="17.0" mnemonicParsing="false" onAction="#saveData" text="save" />
    </children>
 </AnchorPane>
