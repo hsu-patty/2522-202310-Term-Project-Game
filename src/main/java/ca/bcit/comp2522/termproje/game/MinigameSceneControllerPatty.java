@@ -82,6 +82,7 @@ public class MinigameSceneControllerPatty {
 
     }
 
+    @SuppressWarnings("checkstyle:MagicNumber")
     public void swing() {
 //        RotateTransition rotate = new RotateTransition();
 //        Rotate rotation = new Rotate();
@@ -96,6 +97,17 @@ public class MinigameSceneControllerPatty {
 ////        bat.getTransforms().add(rotation);
 ////        rotation.setAngle(rotation.getAngle() + 50);
 //        rotate.play();
+        Rotate rotation = new Rotate();
+        rotation.setPivotX(100);
+        rotation.setPivotY(100);
+//        rotation.pivotXProperty().bind(bat.xProperty());
+//        rotation.pivotXProperty().bind(bat.yProperty());
+        bat.getTransforms().add(rotation);
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(rotation.angleProperty(), 0)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(rotation.angleProperty(), -360)));
+        timeline.play();
+//        bat.getTransforms().add(new Rotate(270,100, 100));
 
         if (baseball.getLayoutY() >= 330 && baseball.getLayoutY() <= 370) {
             this.swing = true;
