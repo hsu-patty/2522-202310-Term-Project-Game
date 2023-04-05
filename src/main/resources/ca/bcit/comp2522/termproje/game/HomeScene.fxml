@@ -30,11 +30,8 @@
             <Label fx:id="happinessLabel" text="Happiness : " />
             <Label fx:id="moneyLabel" text="Money : " />
             <Label fx:id="hungerLabel" text="Hunger : " />
-             <Label fx:id="daysLabel" text="Days passed : " />
          </children>
       </VBox>
-
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="145.0" layoutX="26.0" layoutY="130.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" width="158.0" />
        <HBox alignment="CENTER" layoutX="99.0" layoutY="300.0" prefHeight="0.0" prefWidth="403.0">
            <Button fx:id="eatButton" alignment="CENTER" centerShape="false" mnemonicParsing="false" onAction="#switchToEat" text="Eat" textAlignment="JUSTIFY">
               <opaqueInsets>
@@ -61,7 +58,7 @@
              </HBox.margin>
            </Button>
        </HBox>
-       <HBox alignment="CENTER" layoutX="94.0" layoutY="351.0" prefHeight="38.0" prefWidth="403.0">
+       <HBox alignment="CENTER" layoutX="105.0" layoutY="343.0" prefHeight="38.0" prefWidth="403.0">
            <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
            </padding>
@@ -90,7 +87,18 @@
               </HBox.margin>
            </Button>
        </HBox>
-      <Button layoutX="259.0" layoutY="410.0" mnemonicParsing="false" onAction="#switchToMiniGamePatty" text="Patty" />
        <Button layoutX="531.0" layoutY="17.0" mnemonicParsing="false" onAction="#saveData" text="save" />
+       <Label fx:id="daysLabel" layoutX="13.0" layoutY="18.0" text="Days: " textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="145.0" layoutX="26.0" layoutY="133.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" width="158.0" />
+      <Label fx:id="hits" layoutX="13.0" layoutY="40.0" text="Hits:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -8,12 +8,21 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * Event scene controller class.
+ * @author Patty Hsu & Tim Lee
+ * @version 202310
+ */
 public class EventSceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    /**
+     * Allows users to switch to home scene from all other event scenes.
+     * @param event an Action Event that tells us the home button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
     public void switchToHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScene.fxml"));
         root = loader.load();

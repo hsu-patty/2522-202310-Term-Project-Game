@@ -23,7 +23,7 @@ public class HomeSceneController {
     private Scene scene;
     private Parent root;
 
-    private static Player player;
+    static Player player;
 
     /**
      * Allows users to switch to work scene from home scene and will call the player work method.
@@ -77,18 +77,7 @@ public class HomeSceneController {
         stage.setScene(scene);
         stage.show();
     }
-    /**
-     * Allows users to switch to mini-game scene from home scene and will call the mini-game method.
-     * @param event an Action Event that tells us the mini game button has been pressed
-     * @throws IOException if FXML scene is not found
-     */
-    public void switchToMiniGame(final ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MiniGameScene.fxml")));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
     /**
      * Allows users to switch to relationship scene from home scene and will call the player hangout method.
      * @param event an Action Event that tells us the hangout button has been pressed
@@ -118,6 +107,8 @@ public class HomeSceneController {
     Label hungerLabel;
     @FXML
     Label daysLabel;
+    @FXML
+    Label hits;
     /**
      * Displays player username on screen.
      */
@@ -134,7 +125,8 @@ public class HomeSceneController {
         happinessLabel.setText("Happiness : " + player.getHappiness());
         moneyLabel.setText("Money : " + player.getMoney());
         hungerLabel.setText("Hunger : " + player.getHunger());
-        daysLabel.setText("Days passed : " + player.getDays());
+        daysLabel.setText("Days: " + player.getDays());
+        hits.setText("Hits: " + player.getHits());
     }
     /**
      * Creates a new instance of the player class.
@@ -182,8 +174,13 @@ public class HomeSceneController {
 //            minigameButton.setDisable(true);
 //        }
     }
-    public void switchToMiniGamePatty(final ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MiniGameScenePatty.fxml")));
+    /**
+     * Allows users to switch to mini-game scene from home scene and will call the mini-game method.
+     * @param event an Action Event that tells us the mini game button has been pressed
+     * @throws IOException if FXML scene is not found
+     */
+    public void switchToMiniGame(final ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MiniGameScene.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -201,5 +198,9 @@ public class HomeSceneController {
         fw.write(player.getHunger() + "\r\n");
         fw.write(player.getDays() + "\r\n");
         fw.close();
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

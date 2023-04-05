@@ -16,6 +16,8 @@ public class Player {
     private int money;
     private int days;
     private int hunger;
+
+    private int hits;
     private String name;
     /**
      * Creates an instance of player class.
@@ -27,7 +29,7 @@ public class Player {
         speed = 1;
         strength = 1;
         money = 10;
-        hunger = 10;
+        hunger = 5;
         days = 1;
     }
     /**
@@ -217,5 +219,13 @@ public class Player {
         // decrease energy
         this.energy -= 5;
         this.hunger += 5;
+    }
+
+    public void increaseHits() {
+        this.hits++;
+    }
+
+    public int getHits() {
+        return hits;
     }
 }
