@@ -100,5 +100,15 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <ImageView fx:id="winImage" fitHeight="293.0" fitWidth="468.0" layoutX="66.0" layoutY="46.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/istockphoto-1434200223-612x612.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="loseImage" fitHeight="279.0" fitWidth="485.0" layoutX="57.0" layoutY="65.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/giphy.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

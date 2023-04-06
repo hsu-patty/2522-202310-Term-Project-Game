@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
@@ -199,6 +200,18 @@ public class HomeSceneController {
         fw.write(player.getDays() + "\r\n");
         fw.write(player.getHits() + "\r\n");
         fw.close();
+    }
+
+    @FXML
+    private ImageView winImage;
+    @FXML
+    private ImageView loseImage;
+    public void winCondition() {
+        if (player.getHits() > 30) {
+            winImage.setOpacity(1);
+        } else if (player.getDays() == 20) {
+            loseImage.setOpacity(1);
+        }
     }
 
 

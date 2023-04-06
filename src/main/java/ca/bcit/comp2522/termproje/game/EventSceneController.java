@@ -30,6 +30,7 @@ public class EventSceneController {
         homeSceneController.displayName();
         homeSceneController.displayStats();
         homeSceneController.setButtons();
+        homeSceneController.winCondition();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
