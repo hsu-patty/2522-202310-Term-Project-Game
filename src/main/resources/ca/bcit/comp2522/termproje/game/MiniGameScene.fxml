@@ -24,7 +24,7 @@
             <Image url="@gameImages/bat.png" />
          </image>
       </ImageView>
-      <Button layoutX="542.0" layoutY="460.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
+      <Button layoutX="542.0" layoutY="460.0" mnemonicParsing="false" onAction="#runStartGame" text="Start" />
       <Button layoutX="275.0" layoutY="460.0" mnemonicParsing="false" onAction="#swing" text="Swing" />
       <Rectangle id="hitbox" fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="70.0" layoutX="260.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
    </children>

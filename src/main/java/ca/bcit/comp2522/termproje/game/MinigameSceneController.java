@@ -12,6 +12,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import java.io.IOException;
 import java.util.Random;
@@ -53,7 +56,9 @@ public class MinigameSceneController {
      * Starts the baseball mini-game by pitching the ball.
      */
     @SuppressWarnings("checkstyle:MagicNumber")
-    public void startGame() {
+    public void startGame(){
+        baseball.setLayoutY(263.0);
+        baseball.setLayoutX(292.0);
         Random rand = new Random();
         int x = rand.nextInt(3);
         double playerStat = (double) (HomeSceneController.player.getStrength() + HomeSceneController.player.getSpeed())
@@ -88,7 +93,6 @@ public class MinigameSceneController {
         ballTimeline.setDelay(Duration.seconds(2));
         ballTimeline.setCycleCount(500);
         ballTimeline.play();
-
     }
     /**
      * Allows users to swing the baseball bat to hit the ball.
@@ -110,4 +114,17 @@ public class MinigameSceneController {
             HomeSceneController.player.increaseHits();
         }
     }
+
+    public void runStartGame() {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        for (int i = 0; i < 10; i++) {
+            scheduler.schedule(() -> startGame(), i * 10, TimeUnit.SECONDS);
+        }
+        scheduler.shutdown();
+    }
+//    public void playGame() throws InterruptedException {
+//        for (int i = 0; i < 10; i++) {
+//            startGame();
+//        }
+//    }
 }
