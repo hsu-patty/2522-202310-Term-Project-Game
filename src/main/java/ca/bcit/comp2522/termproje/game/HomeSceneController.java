@@ -207,10 +207,10 @@ public class HomeSceneController {
     @FXML
     private ImageView loseImage;
     public void winCondition() {
-        if (player.getHits() > 1) {
+        if (player.getHits() > 30) {
             winImage.setOpacity(1);
             winImage.setLayoutY(70);
-        } else if (player.getDays() == 2) {
+        } else if (player.getDays() == 20) {
             loseImage.setOpacity(1);
             loseImage.setLayoutY(70);
         }
