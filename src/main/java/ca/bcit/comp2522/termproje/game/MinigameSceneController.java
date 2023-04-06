@@ -46,6 +46,8 @@ public class MinigameSceneController {
         root = loader.load();
         HomeSceneController homeSceneController = loader.getController();
         homeSceneController.displayStats();
+        homeSceneController.displayName();
+        homeSceneController.setButtons();
         homeSceneController.winCondition();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
