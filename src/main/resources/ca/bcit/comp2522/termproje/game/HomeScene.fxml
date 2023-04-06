@@ -18,7 +18,7 @@
             <Image url="@gameImages/room1.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="nameLabel" alignment="TOP_LEFT" layoutX="238.0" layoutY="18.0" text="Label" textFill="#f8f8f8">
+      <Label fx:id="nameLabel" alignment="TOP_LEFT" layoutX="213.0" layoutY="18.0" text="Label" textFill="#f8f8f8">
          <font>
             <Font size="36.0" />
          </font></Label>
@@ -110,7 +110,7 @@
             <Image url="@gameImages/giphy.gif" />
          </image>
       </ImageView>
-      <Label fx:id = "saveMessage" layoutX="184.0" layoutY="99.0" style="-fx-background-color: white;" text="The game has been saved." visible="false">
+      <Label fx:id="saveMessage" layoutX="184.0" layoutY="99.0" style="-fx-background-color: white;" text="The game has been saved." visible="false">
          <font>
             <Font size="20.0" />
          </font>
