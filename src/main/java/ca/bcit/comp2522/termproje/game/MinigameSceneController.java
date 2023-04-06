@@ -59,6 +59,9 @@ public class MinigameSceneController {
     public void startGame(){
         baseball.setLayoutY(263.0);
         baseball.setLayoutX(292.0);
+        rectangle.setLayoutY(310);
+        rectangle.setHeight(70);
+        this.swing = false;
         Random rand = new Random();
         int x = rand.nextInt(3);
         double playerStat = (double) (HomeSceneController.player.getStrength() + HomeSceneController.player.getSpeed())
@@ -118,7 +121,7 @@ public class MinigameSceneController {
     public void runStartGame() {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         for (int i = 0; i < 10; i++) {
-            scheduler.schedule(() -> startGame(), i * 10, TimeUnit.SECONDS);
+            scheduler.schedule(() -> startGame(), i * 4, TimeUnit.SECONDS);
         }
         scheduler.shutdown();
     }
