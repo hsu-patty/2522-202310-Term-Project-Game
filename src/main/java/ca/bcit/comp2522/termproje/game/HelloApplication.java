@@ -24,7 +24,7 @@ public class HelloApplication extends Application {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScreen.fxml")));
             Scene scene = new Scene(root);
-            stage.setTitle("Hello!");
+            stage.setTitle("Rising Star");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

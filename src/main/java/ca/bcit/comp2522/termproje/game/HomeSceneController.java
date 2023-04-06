@@ -1,5 +1,7 @@
 package ca.bcit.comp2522.termproje.game;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
+import javafx.util.Duration;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -200,6 +203,20 @@ public class HomeSceneController {
         fw.write(player.getDays() + "\r\n");
         fw.write(player.getHits() + "\r\n");
         fw.close();
+
+        showSaveMessage();
+    }
+
+    @FXML
+    Label saveMessage;
+    public void showSaveMessage() {
+        Timeline saveTimeline = new Timeline(new KeyFrame(Duration.seconds(0.5), e -> {
+            saveMessage.setVisible(true);
+        }));
+        saveTimeline.setCycleCount(3);
+        saveTimeline.play();
+        saveTimeline.setOnFinished(e ->
+                saveMessage.setVisible(false));
     }
 
     @FXML
