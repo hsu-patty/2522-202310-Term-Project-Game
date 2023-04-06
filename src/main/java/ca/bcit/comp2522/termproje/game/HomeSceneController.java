@@ -138,8 +138,8 @@ public class HomeSceneController {
     }
 
     public void loadPlayer(final String name, final int speed, final int strength, final int energy,
-                           final int happiness, final int money, final int hunger, final int days) {
-        this.player = new Player(name, speed, strength, energy, happiness, money, hunger, days);
+                           final int happiness, final int money, final int hunger, final int days, final int hits) {
+        this.player = new Player(name, speed, strength, energy, happiness, money, hunger, days, hits);
     }
     @FXML
     Button eatButton;
@@ -197,10 +197,9 @@ public class HomeSceneController {
         fw.write(player.getMoney() + "\r\n");
         fw.write(player.getHunger() + "\r\n");
         fw.write(player.getDays() + "\r\n");
+        fw.write(player.getHits() + "\r\n");
         fw.close();
     }
 
-    public Player getPlayer() {
-        return player;
-    }
+
 }

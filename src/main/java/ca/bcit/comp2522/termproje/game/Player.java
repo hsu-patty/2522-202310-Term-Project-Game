@@ -28,7 +28,7 @@ public class Player {
         energy = 10;
         speed = 1;
         strength = 1;
-        money = 10;
+        money = 5;
         hunger = 5;
         days = 1;
     }
@@ -36,7 +36,7 @@ public class Player {
      * Creates an instance of player class with given information.
      */
     public Player(final String newName, final int newSpeed, final int newStrength, final int newEnergy,
-                  final int newHappiness, final int newMoney, final int newHunger, final int newDays) {
+                  final int newHappiness, final int newMoney, final int newHunger, final int newDays, final int newHits) {
         name = newName;
         speed = newSpeed;
         strength = newStrength;
@@ -45,6 +45,7 @@ public class Player {
         money = newMoney;
         hunger = newHunger;
         days = newDays;
+        hits = newHits;
     }
 
     /**
@@ -204,6 +205,7 @@ public class Player {
         this.money -= 2;
         //increase hunger
         this.hunger -= 5;
+        this.energy -= 5;
     }
     /**
      * Simulates player Working.

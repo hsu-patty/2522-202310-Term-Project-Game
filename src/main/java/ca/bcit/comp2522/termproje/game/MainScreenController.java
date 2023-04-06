@@ -60,6 +60,7 @@ public class MainScreenController {
             int userMoney = dataScanner.nextInt();
             int userHunger = dataScanner.nextInt();
             int days = dataScanner.nextInt();
+            int hits = dataScanner.nextInt();
 //            System.out.printf("%s, %d, %d, %d, %d, %d, %d, %d",
 //                    username, userSpeed, userStrength, userEnergy, userHappiness, userMoney,
 //                    userHunger, days);
@@ -68,7 +69,7 @@ public class MainScreenController {
             root = loader.load();
             HomeSceneController homeSceneController = loader.getController();
             homeSceneController.loadPlayer(username, userSpeed, userStrength, userEnergy, userHappiness, userMoney,
-                    userHunger, days);
+                    userHunger, days, hits);
             homeSceneController.displayName();
             homeSceneController.displayStats();
             homeSceneController.setButtons();
