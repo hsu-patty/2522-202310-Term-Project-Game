@@ -47,7 +47,11 @@ public class MainScreenController {
         stage.setScene(scene);
         stage.show();
     }
-
+    /**
+     * Loads the previous player's progress based on saved text file if load button is pressed.
+     * @param event an ActionEvent indicating that the load button has been pressed
+     * @throws IOException if file to be loaded from is not found
+     */
     public void loadGame(final ActionEvent event) throws IOException {
         try {
             File file = new File("src/main/java/ca/bcit/comp2522/termproje/game/save.txt");
@@ -61,9 +65,6 @@ public class MainScreenController {
             int userHunger = dataScanner.nextInt();
             int days = dataScanner.nextInt();
             int hits = dataScanner.nextInt();
-//            System.out.printf("%s, %d, %d, %d, %d, %d, %d, %d",
-//                    username, userSpeed, userStrength, userEnergy, userHappiness, userMoney,
-//                    userHunger, days);
             dataScanner.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScene.fxml"));
             root = loader.load();

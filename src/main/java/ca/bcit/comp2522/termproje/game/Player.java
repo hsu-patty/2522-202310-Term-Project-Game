@@ -1,6 +1,5 @@
 package ca.bcit.comp2522.termproje.game;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -33,10 +32,20 @@ public class Player {
         days = 1;
     }
     /**
-     * Creates an instance of player class with given information.
+     * Creates a new instance of the player class based on previous saved file.
+     * @param newName player's previous name as a string
+     * @param newSpeed player's previous speed as an int
+     * @param newStrength player's previous strength as an int
+     * @param newEnergy player's previous energy as an int
+     * @param newHappiness player's previous happiness as an int
+     * @param newMoney player's previous money as an int
+     * @param newHunger player's previous hunger as an int
+     * @param newDays player's previous days as an int
+     * @param newHits player's previous hits as an int
      */
     public Player(final String newName, final int newSpeed, final int newStrength, final int newEnergy,
-                  final int newHappiness, final int newMoney, final int newHunger, final int newDays, final int newHits) {
+                  final int newHappiness, final int newMoney, final int newHunger, final int newDays,
+                  final int newHits) {
         name = newName;
         speed = newSpeed;
         strength = newStrength;
@@ -54,13 +63,6 @@ public class Player {
      */
     public int getHappiness() {
         return happiness;
-    }
-    /**
-     * Sets the player's happiness.
-     * @param happiness integer representing new player happiness
-     */
-    public void setHappiness(final int happiness) {
-        this.happiness = happiness;
     }
     /**
      * Gets the players current energy.
@@ -83,13 +85,7 @@ public class Player {
     public int getSpeed() {
         return speed;
     }
-    /**
-     * Sets the player's speed.
-     * @param speed integer representing new player speed stat
-     */
-    public void setSpeed(final int speed) {
-        this.speed = speed;
-    }
+
     /**
      * Gets the players current strength stats.
      * @return integer representing player strength
@@ -97,13 +93,7 @@ public class Player {
     public int getStrength() {
         return strength;
     }
-    /**
-     * Sets the player's happiness.
-     * @param strength integer representing new player strength stat
-     */
-    public void setStrength(final int strength) {
-        this.strength = strength;
-    }
+
     /**
      * Gets the players current money amount.
      * @return integer representing player money
@@ -112,25 +102,11 @@ public class Player {
         return money;
     }
     /**
-     * Sets the player's money amount.
-     * @param money integer representing new player money
-     */
-    public void setMoney(int money) {
-        this.money = money;
-    }
-    /**
      * Gets the players current day.
      * @return integer representing player day.
      */
     public int getDays() {
         return days;
-    }
-    /**
-     * Sets the player's current in game day.
-     * @param days integer representing new player day
-     */
-    public void setDays(int days) {
-        this.days = days;
     }
 
     /**
@@ -142,13 +118,16 @@ public class Player {
     }
 
     /**
-     * Sets the player's name
+     * Sets the player's name.
      * @param name a string
      */
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
-
+    /**
+     * Gets the player's current hunger.
+     * @return integer representing player's current hunger
+     */
     public int getHunger() {
         return this.hunger;
     }
@@ -160,11 +139,11 @@ public class Player {
     public void trainPlayer() {
         Random random = new Random();
         //increase speed between 1-3
-        this.speed += random.nextInt(3)+1;
+        this.speed += random.nextInt(3) + 1;
         //increase strength between 1-3
-        this.strength += random.nextInt(3)+1;
+        this.strength += random.nextInt(3) + 1;
         //decrease happiness
-        this.happiness -= random.nextInt(3)+1;
+        this.happiness -= random.nextInt(3) + 1;
         //decrease energy
         this.energy -= 5;
         //decrease hunger
@@ -185,7 +164,7 @@ public class Player {
     public void hangout() {
         Random random = new Random();
         //increase happiness between 1-3
-        this.happiness += random.nextInt(3)+1;
+        this.happiness += random.nextInt(3) + 1;
         //decrease money
         this.money -= 2;
         //decrease energy
@@ -200,7 +179,7 @@ public class Player {
     public void eat() {
         Random random = new Random();
         //increase happiness between 1-3
-        this.happiness += random.nextInt(3)+1;
+        this.happiness += random.nextInt(3) + 1;
         //decrease money
         this.money -= 2;
         //increase hunger
@@ -222,11 +201,16 @@ public class Player {
         this.energy -= 5;
         this.hunger += 5;
     }
-
+    /**
+     * Increases player's current hits.
+     */
     public void increaseHits() {
         this.hits++;
     }
-
+    /**
+     * Returns player's current hits.
+     * @return int representing player's current hits
+     */
     public int getHits() {
         return hits;
     }

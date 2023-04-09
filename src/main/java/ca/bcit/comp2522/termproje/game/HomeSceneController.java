@@ -25,8 +25,6 @@ import java.util.Objects;
 public class HomeSceneController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
-
     static Player player;
 
     /**
@@ -137,13 +135,25 @@ public class HomeSceneController {
      * @param name player's inputted name
      */
     public void createPlayer(final String name) {
-        this.player = new Player();
+        player = new Player();
         player.setName(name);
     }
 
+    /**
+     * Creates a new instance of the player class based on previous saved file.
+     * @param name player's previous name as a string
+     * @param speed player's previous speed as an int
+     * @param strength player's previous strength as an int
+     * @param energy player's previous energy as an int
+     * @param happiness player's previous happiness as an int
+     * @param money player's previous money as an int
+     * @param hunger player's previous hunger as an int
+     * @param days player's previous days as an int
+     * @param hits player's previous hits as an int
+     */
     public void loadPlayer(final String name, final int speed, final int strength, final int energy,
                            final int happiness, final int money, final int hunger, final int days, final int hits) {
-        this.player = new Player(name, speed, strength, energy, happiness, money, hunger, days, hits);
+        player = new Player(name, speed, strength, energy, happiness, money, hunger, days, hits);
     }
     @FXML
     Button eatButton;
@@ -158,7 +168,9 @@ public class HomeSceneController {
     @FXML
     Button minigameButton;
 
-
+    /**
+     * Determines which buttons are enabled based on player stats.
+     */
     public void setButtons() {
         if (player.getEnergy() <= 0) {
             eatButton.setDisable(true);
@@ -172,15 +184,11 @@ public class HomeSceneController {
             hangoutButton.setDisable(false);
         }
 
-//        if (player.getDays() % 5 == 0 || player.getDays() == 0) {
-//            minigameButton.setDisable(false);
-//        } else {
-//            minigameButton.setDisable(true);
-//        }
+        minigameButton.setDisable(player.getDays() % 5 != 0 && player.getDays() != 0);
     }
     /**
      * Allows users to switch to mini-game scene from home scene and will call the mini-game method.
-     * @param event an Action Event that tells us the mini game button has been pressed
+     * @param event an Action Event that tells us the mini-game button has been pressed
      * @throws IOException if FXML scene is not found
      */
     public void switchToMiniGame(final ActionEvent event) throws IOException {
@@ -190,7 +198,10 @@ public class HomeSceneController {
         stage.setScene(scene);
         stage.show();
     }
-
+    /**
+     * Creates a save file of current player progress.
+     * @throws IOException if file to write to is not found
+     */
     public void saveData() throws IOException {
         FileWriter fw = new FileWriter("src/main/java/ca/bcit/comp2522/termproje/game/save.txt");
         fw.write(player.getName() + "\r\n");
@@ -209,6 +220,9 @@ public class HomeSceneController {
 
     @FXML
     Label saveMessage;
+    /**
+     * Displays a message telling player game has been saved after clicking the save button.
+     */
     public void showSaveMessage() {
         Timeline saveTimeline = new Timeline(new KeyFrame(Duration.seconds(0.5), e -> {
             saveMessage.setVisible(true);
@@ -223,6 +237,9 @@ public class HomeSceneController {
     private ImageView winImage;
     @FXML
     private ImageView loseImage;
+    /**
+     * Displays a win or lose screen depending if conditions have been met
+     */
     public void winCondition() {
         if (player.getHits() > 30) {
             winImage.setOpacity(1);

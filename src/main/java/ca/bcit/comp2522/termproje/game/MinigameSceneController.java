@@ -25,9 +25,6 @@ import java.util.Random;
  */
 
 public class MinigameSceneController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML private ImageView baseball;
     @FXML private ImageView bat;
@@ -43,14 +40,14 @@ public class MinigameSceneController {
      */
     public void switchToHome(final ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScene.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         HomeSceneController homeSceneController = loader.getController();
         homeSceneController.displayStats();
         homeSceneController.displayName();
         homeSceneController.setButtons();
         homeSceneController.winCondition();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -59,7 +56,7 @@ public class MinigameSceneController {
      * Starts the baseball mini-game by pitching the ball.
      */
     @SuppressWarnings("checkstyle:MagicNumber")
-    public void startGame(){
+    public void startGame() {
         baseball.setLayoutY(263.0);
         baseball.setLayoutX(292.0);
         rectangle.setLayoutY(310);
@@ -121,6 +118,9 @@ public class MinigameSceneController {
         }
     }
 
+    /**
+     * Allows mini-game to be looped 10 times.
+     */
     public void runStartGame() {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         for (int i = 0; i < 10; i++) {
@@ -128,9 +128,5 @@ public class MinigameSceneController {
         }
         scheduler.shutdown();
     }
-//    public void playGame() throws InterruptedException {
-//        for (int i = 0; i < 10; i++) {
-//            startGame();
-//        }
-//    }
+
 }

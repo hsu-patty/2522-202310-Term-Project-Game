@@ -13,6 +13,6 @@
             <Image url="@gameImages/sleeping.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="homeButton" layoutX="283.0" layoutY="392.0" mnemonicParsing="false" onAction="#switchToHome" text="Button" />
+      <Button fx:id="homeButton" layoutX="283.0" layoutY="392.0" mnemonicParsing="false" onAction="#switchToHome" text="Go Home" />
    </children>
 </AnchorPane>
